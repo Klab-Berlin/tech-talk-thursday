@@ -1,0 +1,9 @@
+{
+  "name": "web-components",
+  "description": "Web Components examples",
+  "version": "0.1.0",
+  "author": "Frederik Rudeck <frederik.rudeck@googlemail.com>",
+  "dependencies": {
+    "express": "latest"
+  }
+}

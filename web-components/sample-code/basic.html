@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>basic</title>
+</head>
+<body>
+  
+  <template>
+    <style type="text/css" media="screen">
+      h1 {
+        color: red;
+        font-size: 2em;
+      }
+    </style>
+    
+    <h1>Hello World!</h1>
+    <h1>
+      <content select="div"></content>
+    </h1>
+  </template>
+  
+  
+  <style type="text/css" media="screen">
+    h1 {
+      color: blue;
+    }
+  </style>
+  
+  <div id="container">
+    <div>Hello!</div>
+  </div>
+  
+  <script type="text/javascript" charset="utf-8">
+    var tmpl = document.querySelector('template');
+    var host = document.querySelector('#container');
+    var root = host.createShadowRoot();
+    root.appendChild(tmpl.content.cloneNode(true));
+  </script>
+  
+</body>

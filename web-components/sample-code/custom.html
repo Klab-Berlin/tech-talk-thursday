@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>custom</title>
+</head>
+<body>
+  
+  <template>
+    <style type="text/css" media="screen">
+      h1 {
+        color: red;
+        font-size: 2em;
+      }
+    </style>
+    
+    <h1>Hello World!</h1>
+    <h1>
+      <content select="div"></content>
+    </h1>
+  </template>
+  
+  
+  <style type="text/css" media="screen">
+    h1 {
+      color: blue;
+    }
+  </style>
+  
+  <hello-world>
+    <div>Hello!</div>
+  </hello-world>
+  
+  <script type="text/javascript" charset="utf-8">
+    var tmpl = document.querySelector('template');
+    var FooProto = Object.create(HTMLElement.prototype);
+    
+    FooProto.createdCallback = function() {
+      var root = this.createShadowRoot();
+      root.appendChild(tmpl.content.cloneNode(true));
+    };
+    
+    // Register our new element
+    var helloWorld = document.registerElement('hello-world', {
+      prototype: FooProto
+    });
+    </script>
+  
+</body>
