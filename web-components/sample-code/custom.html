@@ -32,16 +32,23 @@
   
   <script type="text/javascript" charset="utf-8">
     var tmpl = document.querySelector('template');
-    var FooProto = Object.create(HTMLElement.prototype);
+    var HelloWorldProto = Object.create(HTMLElement.prototype, {
+      hello: {
+        get: function() {
+          return 'hello';
+        }
+      }
+    });
     
-    FooProto.createdCallback = function() {
+    HelloWorldProto.createdCallback = function() {
       var root = this.createShadowRoot();
       root.appendChild(tmpl.content.cloneNode(true));
+      console.error(this.hello);
     };
     
     // Register our new element
     var helloWorld = document.registerElement('hello-world', {
-      prototype: FooProto
+      prototype: HelloWorldProto
     });
     </script>
   
