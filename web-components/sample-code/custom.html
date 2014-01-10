@@ -32,6 +32,7 @@
   
   <script type="text/javascript" charset="utf-8">
     var tmpl = document.querySelector('template');
+    // extending HTMLElement, can also be a custom element
     var HelloWorldProto = Object.create(HTMLElement.prototype, {
       hello: {
         get: function() {
